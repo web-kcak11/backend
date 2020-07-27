@@ -1,0 +1,27 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "Backend Implementation",
+  "scripts": {
+    "start": "node App.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/web-kcak11/backend.git"
+  },
+  "keywords": [
+    "backend"
+  ],
+  "author": "K.C.Ashish Kumar",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/web-kcak11/backend/issues"
+  },
+  "homepage": "https://github.com/web-kcak11/backend#readme",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1"
+  }
+}
