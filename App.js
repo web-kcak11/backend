@@ -19,7 +19,7 @@ app.set("trust proxy", true);
 app.use(function (req, res, next) {
     let responseID = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".split("").sort(function () { return Math.random() - Math.random(); }).join("");
     res.setHeader('X-KCAK11-ResponseID', responseID);
-    res.setHeader('X-Request-Digest', getDigest(responseID, 64));
+    res.setHeader('X-Response-Digest', getDigest(responseID, 64));
     res.cookie('kcak11Client', req.hostname, { path: '/', secure: req.protocol === "https", httpOnly: false, sameSite: true });
     next();
 });
