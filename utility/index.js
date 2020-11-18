@@ -18,6 +18,25 @@ const utility = {
             errorMarkup = errorMarkup.replace("{{service_error_msg_details}}", "HTTP Status: " + status + "<br/>" + err.message);
             res.end(errorMarkup);
         });
+    },
+    getDigest: function (a, len) {
+        let str = "";
+        let val = 1;
+        let sum = 1;
+        let tot = 0;
+        for (let i = 0; i < a.length; i++) {
+            tot += a.charCodeAt(i);
+        }
+        for (let i = 0; i < a.length; i++) {
+            sum += val;
+            val = a.charCodeAt(i) ^ 128 ^ ((i * 32) + i) ^ (i * 128) ^ val ^ sum ^ a.length ^ tot;
+            try {
+                str += encodeURIComponent(String.fromCharCode(val));
+            } catch (ex) { }
+        }
+        let retVal = str.replace(/%/g, "").toLowerCase();
+        retVal = len && !isNaN(len) ? retVal.substr(-len) : retVal.substr(2);
+        return retVal;
     }
 };
 module.exports = utility;
