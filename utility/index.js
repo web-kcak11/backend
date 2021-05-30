@@ -19,6 +19,9 @@ const utility = {
             res.end(errorMarkup);
         });
     },
+    /**
+    getDigest: get a digest for the given input.
+    */
     getDigest: function (a, len) {
         let str = "";
         let val = 1;
